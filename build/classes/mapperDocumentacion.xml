@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dawi">
+	<resultMap type="DocumentacionIbatis" id="resultDocumentacion">
+		<id column="iddocumentacion" property="codigo"/>
+		<result column="nombre" property="nombre"/>
+		<result column="asunto" property="asunto"/>
+		<result column="fecha" property="fecha"/>
+		<result column="nomcole" property="nombrecole"/>
+		
+	</resultMap>
+	<select id="SQL_listarDocumentacion" statementType="CALLABLE" resultMap="resultDocumentacion">
+		call sp_listAllDocumentos();
+	</select>
+	<insert id="SQL_InsertarDocumentacion" statementType="CALLABLE" parameterType="DocumentacionIbatis">
+		call sp_registrarDocumentacion(#{nombre},#{asunto},#{fecha},#{codigoColegio});
+	</insert>
+	
+	
+</mapper>
+
+
+
