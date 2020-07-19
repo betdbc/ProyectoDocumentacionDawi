@@ -40,7 +40,33 @@
 </style> 
 </head>
 <body>
-
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  	  <div class="navbar-header">
+		       <div class="navbar-header">
+	     		 <a class="navbar-brand" href="menu.jsp">Regresar</a>
+	  			</div>
+	  	</div>
+	  
+	  <div class="collapse navbar-collapse">
+		  <ul class="navbar-nav">
+	
+		   <c:forEach items="${sessionScope.ENLACES}" var="row">
+		    <li class="nav-item">
+		      <a class="nav-link" href="${row.ruta}">${row.descripcion}</a>
+		    </li>
+		</c:forEach>
+	
+		    
+		  </ul>
+	
+		  <div class="navbar-nav ml-auto">
+		  		
+		     	<span class="nav-item nav-link">${sessionScope.USUARIO.apellidos} ${sessionScope.USUARIO.nombres}</span>  
+		     
+		        <a href="cerrarSesion" class="nav-item nav-link">Cerar Sesión</a>
+	      </div>
+    </div>
+	</nav>
 
 <s:if test="${sessionScope.MENSAJE !=null}">
 <div class="alert alert-warning alert-dismissible fade show" role="alert" id="success-alert">
