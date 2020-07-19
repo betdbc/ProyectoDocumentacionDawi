@@ -8,7 +8,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="estado" property="estado"/>
 		<result column="nomcole" property="nomCole"/>
 		<result column="asunto" property="asunto"/>
-		<result column="fecha" property="fecha"/>
 		
 	</resultMap>
 	<select id="SQL_listarIngreso" statementType="CALLABLE" resultMap="resultIngreso">

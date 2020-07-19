@@ -1,1 +1,8 @@
+/ConfiguracionIbatis.xml
+/log4j.properties
+/mapperColegio.xml
+/mapperDocumentacion.xml
+/mapperIngreso.xml
+/mapperUsuario.xml
 /net/
+/struts.xml

@@ -1,11 +1,11 @@
 package net.farmacia.entidad;
 
-import java.util.Date;
+
 
 public class Ingreso {
 	private int codigoIngreso, codigocolegio;
 	private String estado, nomCole, asunto;
-	private Date fecha;
+	private String fecha;
 	
 	public int getCodigoIngreso() {
 		return codigoIngreso;
@@ -37,12 +37,13 @@ public class Ingreso {
 	public void setAsunto(String asunto) {
 		this.asunto = asunto;
 	}
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
+	
 	
 	
 	
