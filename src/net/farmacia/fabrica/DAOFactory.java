@@ -1,12 +1,8 @@
 package net.farmacia.fabrica;
-import net.farmacia.interfaces.BoletaDAO;
-import net.farmacia.interfaces.ClienteDAO;
+
 import net.farmacia.interfaces.ColegioDAO;
 import net.farmacia.interfaces.DocumentacionDAO;
 import net.farmacia.interfaces.IngresoDAO;
-import net.farmacia.interfaces.LaboratorioDAO;
-import net.farmacia.interfaces.MedicamentoDAO;
-import net.farmacia.interfaces.TipoMedicamentoDAO;
 import net.farmacia.interfaces.UsuarioDAO;
 
 public abstract class DAOFactory {
@@ -24,12 +20,9 @@ public abstract class DAOFactory {
     public abstract ColegioDAO getColegioDAO();
     public abstract IngresoDAO getIngresoDAO();
     
-    public abstract LaboratorioDAO getLaboratorioDAO();
-    public abstract MedicamentoDAO getMedicamentoDAO();
-    public abstract TipoMedicamentoDAO getTipoMedicamentoDAO();
+
     public abstract UsuarioDAO getUsuarioDAO();
-    public abstract ClienteDAO getClienteDAO(); 
-    public abstract BoletaDAO getBoletaDAO();
+
     
     public static DAOFactory getDAOFactory(int whichFactory){
         switch(whichFactory){

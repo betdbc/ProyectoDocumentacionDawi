@@ -10,7 +10,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import net.farmacia.entidad.Enlace;
-import net.farmacia.entidad.Laboratorio;
 import net.farmacia.entidad.Usuario;
 import net.farmacia.interfaces.UsuarioDAO;
 
