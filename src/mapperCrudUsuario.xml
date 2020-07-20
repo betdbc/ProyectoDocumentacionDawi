@@ -19,10 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		call sp_listarUsuarios();
 	</select>
 	<update id="SQL_ActualizarUsuario" statementType="CALLABLE" parameterType="UsuarioCrudIbatis">
-		call sp_actualizarUsuarios(#{codigo},#{nombres},#{apellidos},#{login},#{clave},#{correo});
+		call sp_actualizarUsuarios(#{codigoUsuario},#{nombres},#{apellidos},#{login},#{clave},#{correo});
 	</update>
 	<delete id="SQL_EliminarMedicamento" statementType="CALLABLE" parameterType="int">
-		call sp_eliminarUsuarios(#{cod});
+		call sp_eliminarUsuarios(#{codigoUsuario});
 	</delete>
 	
 	

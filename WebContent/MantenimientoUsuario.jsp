@@ -9,8 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" type="text/css"/>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" type="text/css"/>
 
-
-<title>Usuarios</title>
+<title>Usuario</title>
 <style>
 	.modal-header, h4, .close {
 		background-color: #286090;
@@ -65,16 +64,15 @@
         
         <!-- Modal body -->
         <div class="modal-body">
-        	¿Estas seguro de eliminar al usuario? 
+        	¿Seguro que quieres eliminar a este usuario? 
         </div>
         
         <!-- Modal footer -->
         <div class="modal-footer">
           <form action="deleteUsuario" method="post" name="myForm">	
-		  	  <input type="text" id="idEliminar" name="codUsuario">
+		  	   <input type="text" id="idEliminar" name="codUsuario" readonly="true">
 		  	  <button type="submit" class="btn btn-primary">Si</button>
 	          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-	          
           </form>
         </div>
         
@@ -82,11 +80,10 @@
     </div>
   </div>
 
-<!-- INICIO DIV Lista -->
 	<div class="container">
-		<h3 align="center">Lista de usuarios</h3>
+		<h3 align="center">Lista Usuarios</h3>
 		<button type="button" data-toggle='modal'  data-target="#idModalRegistra"
-				class='btn btn-primary' >Crear nuevo usuario</button><br>&nbsp;<br>
+				class='btn btn-primary' >Nuevos usuarios</button><br>&nbsp;<br>
 				
 				
 				
@@ -121,114 +118,91 @@
           				<span aria-hidden="true">&times;</span>
        				   </button>
 				</div>
-				 <!-- Inicio div Registrar -->
 				<div class="modal-body" style="padding: 20px 20px;">
-					<form id="idRegistra" accept-charset="UTF-8" action="addUsuarios" 
+					<form id="idRegistra" accept-charset="UTF-8" action="saveUsuario" enctype="multipart/form-data"
 													class="form-horizontal" method="post" data-toggle="validator" role="form">						
 		                   
-		                                	<div class="form-row">
+		                                	<div class="form-group">
 			                                   	<label for="staticEmail">Nombre</label>
-												<input class="form-control" id="idNombre" name="usuario.nombres" placeholder="Ingrese el Nombre"/>
+												<input class="form-control" id="idNombre" name="usuario.nombres" placeholder="Ingrese su nombre"/>
 			                                </div>    
-		                                    <div class="form-row">
-		                                       <label for="staticEmail">Apellido</label>
-											   <input class="form-control" id="idApellido" name="usuario.apellidos" placeholder="Ingrese Apellido">
-		                                    </div>
-		                                    <div class="form-row">
-			                                    <div class="form-group col-md-6">
-			                                        <label for="staticEmail">usuario</label>
-														<input class="form-control" id="idUsuario" name="usuario.login" placeholder="Ingrese Usuario"/>
-			                                    </div>
-			                                 </div>
-			                                 <div class="form-row">
-			                                    <div class="form-group col-md-6">
-			                                        <label for="staticEmail">Contraseña</label>
-														<input class="form-control" id="idContraseña" name="usuario.clave" placeholder="Ingrese Contraseña"/>
-			                                    </div>
-			                                 </div> 
-			                                 <div class="form-row">
-			                                    <div class="form-group col-md-6">
-			                                        <label for="staticEmail">Correo</label>
-														<input class="form-control" id="idCorreo" name="usuario.correo" placeholder="Ingrese Correo"/>
-			                                    </div>
-			                                 </div>   
-		                                   
-			                                 
-                             	                                    
+		                                    <div class="form-group">
+			                                   	<label for="staticEmail">Apellido</label>
+												<input class="form-control" id="idApellido" name="usuario.apellidos" placeholder="Ingrese su apellido"/>
+			                                </div>  
+		                                    <div class="form-group">
+			                                   	<label for="staticEmail">Usuario</label>
+												<input class="form-control" id="idUsuario" name="usuario.login" placeholder="Ingrese su usuario"/>
+			                                </div>    
+		                                    <div class="form-group">
+			                                   	<label for="staticEmail">Contraseña</label>
+												<input class="form-control" id="idContraseña" type="password" name="usuario.clave" placeholder="Ingrese su contraseña"/>
+			                                </div>  
+		                                    <div class="form-group">
+			                                   	<label for="staticEmail">Correo</label>
+												<input class="form-control" id="idCorreo" name="usuario.correo" placeholder="Ingrese su correo"/>
+			                                </div>  
+		                                    	                                    
                         				<div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 									        <button type="submit" class="btn btn-primary">Guardar</button>
 									    </div>
 
-		            </form>   
-		         </div>
-</div>
-</div>
-		         <!-- Fin div Registrar -->
-		         
-		          <!-- Inicio div Actualizar -->
-		          <div class="modal fade bd-example-modal-lg" id="idModalEditar" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  				  <div class="modal-dialog modal-lg" role="document">
+		            </form>      
+				</div>
+			</div>
+		</div>
+  </div>
+  <!-- FIN DIV NUEVO -->
+  
+  <!-- INICIO DIV EDITAR -->
+<div class="modal fade bd-example-modal-lg" id="idModalEditar" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
 				<!-- Modal content-->
-		          <div class="modal-content">
+				<div class="modal-content">
 				<div class="modal-header" style="padding: 5px 20px">
 					Actualizar Usuario<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           				<span aria-hidden="true">&times;</span>
        				   </button>
 				</div>
 				<div class="modal-body" style="padding: 20px 20px;">
-					<form id="idEditar" accept-charset="UTF-8" action="updateUsuario" 
+					<form id="idRegistra" accept-charset="UTF-8" action="updateUsuario" 
 													class="form-horizontal" method="post" data-toggle="validator" role="form">						
 		                   
-		                   					<input type="text" id="idCodigoM" name="medicamento.idMedicamento"/>
-		                                	<div class="form-row">
+		                   					<input type="text" id="idCodigoM" name="usuario.codigoUsuario" readonly="true"/>
+		                                	<div class="form-group">
 			                                   	<label for="staticEmail">Nombre</label>
-												<input class="form-control" id="idNombreM" name="usuario.nombres" placeholder="Ingrese el Nombre"/>
+												<input class="form-control" id="idNombreM" name="usuario.nombres" placeholder="Ingrese su nombre"/>
 			                                </div>    
-		                                    <div class="form-row">
-		                                       <label for="staticEmail">Apellido</label>
-											   <input class="form-control" id="idApellidoM" name="usuario.apellidos" placeholder="Ingrese Apellido">
-		                                    </div>
-		                                    <div class="form-row">
-			                                    <div class="form-group col-md-6">
-			                                        <label for="staticEmail">usuario</label>
-														<input class="form-control" id="idUsuarioM" name="usuario.login" placeholder="Ingrese Usuario"/>
-			                                    </div>
-			                                 </div>
-			                                 <div class="form-row">
-			                                    <div class="form-group col-md-6">
-			                                        <label for="staticEmail">Contraseña</label>
-														<input class="form-control" id="idContraseñaM" name="usuario.clave" placeholder="Ingrese Contraseña"/>
-			                                    </div>
-			                                 </div> 
-			                                 <div class="form-row">
-			                                    <div class="form-group col-md-6">
-			                                        <label for="staticEmail">Correo</label>
-														<input class="form-control" id="idCorreoM" name="usuario.correo" placeholder="Ingrese Correo"/>
-			                                    </div>
-			                                 </div>  		                                    
+		                                    <div class="form-group">
+			                                   	<label for="staticEmail">Apellido</label>
+												<input class="form-control" id="idApellidoM" name="usuario.apellidos" placeholder="Ingrese su apellido"/>
+			                                </div>  
+		                                    <div class="form-group">
+			                                   	<label for="staticEmail">Usuario</label>
+												<input class="form-control" id="idUsuarioM" name="usuario.login" placeholder="Ingrese su usuario"/>
+			                                </div>    
+		                                    <div class="form-group">
+			                                   	<label for="staticEmail">Contraseña</label>
+												<input class="form-control" id="idContraseñaM" name="usuario.clave" type="password" placeholder="Ingrese su contraseña"/>
+			                                </div>  
+		                                    <div class="form-group">
+			                                   	<label for="staticEmail">Correo</label>
+												<input class="form-control" id="idCorreoM" name="usuario.correo" placeholder="Ingrese su correo"/>
+			                                </div>  		                                    
                         				<div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 									        <button type="submit" class="btn btn-primary">Actualizar</button>
 									    </div>
+
 		            </form>      
 				</div>
-			</div>   
-				</div>
 			</div>
-			<!--Fin div Actualizar -->
-			
-			
-			
-			
-			
-			
 		</div>
   </div>
-   
+  <!-- FIN DIV EDITAR -->
 
-  
-
+</div>
   
 
 
@@ -248,9 +222,9 @@ var idTipo=0;
 
 $(document).ready(function() {
 	cargarTabla();
+	cargarComboLaboratorio();
 });
 </script>
-
 <script>
 	function cargarTabla(){
 		$.getJSON("listAllUsuarios",{},function(data){
@@ -275,90 +249,31 @@ $(document).ready(function() {
 			$("#idTable").DataTable();
 		})
 	}
-	
+
 	function eliminar(id){
 		//alert(id);
 		$("#idEliminar").val(id);
 	}
-	
-	
-	$("#clienteTable").on("click","tbody tr",function(){
-		var nom,ape,login,clave,correo;
-		nom=$(this).children('td:eq(0)').html();
-		ape=$(this).children('td:eq(1)').html();
-		login=$(this).children('td:eq(2)').html();
-		clave=$(this).children('td:eq(3)').html();
-		correo=$(this).children('td:eq(4)').html();
+
+	//asignar el evento clic al botón cuyo identificador ed idEditar
+	$(document).on("click","#idEditar",function(){
+		var cod=$(this).parents("tr").find("td")[0].innerHTML;
+		var nom=$(this).parents("tr").find("td")[1].innerHTML;
+		var ape=$(this).parents("tr").find("td")[2].innerHTML;
+		var login=$(this).parents("tr").find("td")[3].innerHTML;
+		var clave=$(this).parents("tr").find("td")[4].innerHTML;
+		var correo=$(this).parents("tr").find("td")[5].innerHTML;
 		
+		$("#idCodigoM").val(cod);
 		$("#idNombreM").val(nom);
 		$("#idApellidoM").val(ape);
 		$("#idUsuarioM").val(login);
 		$("#idContraseñaM").val(clave);
 		$("#idCorreoM").val(correo);
-	})
-	
-</script>
-
-
-		  <!-- FIN DIV NUEVO
-		  
-		  
-		  $("#clienteTable").on("click","tbody tr",function(){
-			var cod,nom,asun,fecha,nomcol;
-			cod=$(this).children('td:eq(0)').html();
-			nom=$(this).children('td:eq(1)').html();
-			asun=$(this).children('td:eq(2)').html();
-			fecha=$(this).children('td:eq(3)').html();
-			nomcol=$(this).children('td:eq(4)').html();
-			
-			$("#idCodigoCliente").val(cod);
-			$("#idNombreCliente").val(nom);
-			$("#idApellidoCliente").val(asun);
-			$("#idFecha").val(fecha);
-			$("#idColegio").val(nomcol);
-		})
 		
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-<script>
-
-$(document).ready(function() {
-	tabla();
-});
-</script>
-<script>
-	
-	
-
-function tabla(){
-	$.getJSON("listAllUsuarios",{},function(data){
-		//bucle
-		$.each(data.listaUsuario,function(index,item){
-			var eliminar="<button type='button' class='btn btn-danger' data-toggle='modal' "+
-			"data-target='#myEliminar' onclick='eliminar("+item.codigoUsuario+")'>Eliminar</button>";
-			$("#idTable").append("<tr><td>"+item.codigoUsuario+"</td><td>"+item.nombres+"</td><td>"+
-											item.apellidos+"</td><td>"+
-											item.login+"</td><td>"+
-											item.clave+"</td><td>"+
-											item.correo+"</td><td>"+
-											eliminar+"</td></tr>");
-		})
-		//formato para la tabla
-		$("#idTable").DataTable();
 	})
-}
-function eliminar(id){
-	//alert(id);
-	$("#idEliminar").val(id);
-}
 
-</script>*/ -->
+</script>
 
 
 <script type="text/javascript">    
@@ -427,3 +342,15 @@ function eliminar(id){
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
