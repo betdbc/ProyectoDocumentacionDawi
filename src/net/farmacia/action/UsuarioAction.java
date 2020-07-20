@@ -17,6 +17,11 @@ import net.farmacia.service.UsuarioService;
 public class UsuarioAction extends ActionSupport{
 	//atributos para la sesión
 	private String login,clave;
+	//ListarUsuario
+	private List<Usuario> listaUsuario;
+	private Usuario usuario;
+	private int codUsuario;
+	
 	
 	//atributo del servicio
 	private UsuarioService servicioUsuario;
@@ -65,10 +70,78 @@ public class UsuarioAction extends ActionSupport{
 		return "ok";
 	}
 	
+	//crear una acción que retorne un JSON
+		@Action(value="/listAllUsuarios",results= {@Result(name="ok",type="json") })
+		public String listAllUsuarios() {
+			listaUsuario=servicioUsuario.listAllUsuario();
+			return "ok";
+		}
+	
+		@Action(value="/saveUsuario",results= {@Result(name="ok",type="redirect",location="/MantenimientoUsuario.jsp") })
+		public String saveUsuario() {
+			int salida;
+			salida=servicioUsuario.save(usuario);
+			if(salida!=-1)
+				session.put("MENSAJE", "Registro Ok");
+			else
+				session.put("MENSAJE", "Error");
+			return "ok";
+		}
+		
+		//crear una acción para actualizar medicamento
+				@Action(value="/updateUsuario",results= {@Result(name="ok",type="redirect",location="/MantenimientoUsuario.jsp") })
+				public String updateUsuario() {
+					int estado;
+					estado=servicioUsuario.update(usuario);
+					if(estado!=-1)
+						session.put("MENSAJE", "Se actualizo correctamente el usuario");
+					else
+						session.put("MENSAJE", "Error en la actualización del usuario");
+					return "ok";
+				}
+				
+				//crear una acción para eliminar medicamento
+				@Action(value="/deleteUsuario",results= {@Result(name="ok",type="redirect",location="/MantenimientoUsuario.jsp") })
+				public String deleteMedicamento() {
+					int estado;
+					estado=servicioUsuario.delete(codUsuario);
+					if(estado!=-1)
+						session.put("MENSAJE", "Se elimino correctamente el usuario");
+					else
+						session.put("MENSAJE", "Error en la eliminación del usuario");
+					return "ok";
+				}
+
+	
+				
+				
 	
 	
-	
-	
+	public List<Usuario> getListaUsuario() {
+					return listaUsuario;
+				}
+
+				public void setListaUsuario(List<Usuario> listaUsuario) {
+					this.listaUsuario = listaUsuario;
+				}
+
+				public int getCodUsuario() {
+					return codUsuario;
+				}
+
+				public void setCodUsuario(int codUsuario) {
+					this.codUsuario = codUsuario;
+				}
+				
+
+	public Usuario getUsuario() {
+					return usuario;
+				}
+
+				public void setUsuario(Usuario usuario) {
+					this.usuario = usuario;
+				}
+
 	public String getLogin() {
 		return login;
 	}

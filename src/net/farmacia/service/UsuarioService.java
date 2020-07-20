@@ -19,5 +19,18 @@ public class UsuarioService {
 		return dao.traerEnlancesPorUsuario(codUsu);
 	}
 	
+	public List<Usuario> listAllUsuario(){
+		 return dao.listUsuario();
+	 }
+	 public int save(Usuario bean){
+		 return dao.addUsuario(bean);
+	 }
+	 public int update(Usuario bean){
+		 return dao.updateUsuario(bean);
+	 }
+	 public int delete(int cod){
+		 return dao.deleteUsuario(cod);
+	 }
+	
 	
 }

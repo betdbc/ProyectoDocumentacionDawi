@@ -61,4 +61,70 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 		return lista;
 	}
 
+	@Override
+	public int addUsuario(Usuario usu) {
+		int estado=-1;
+		SqlSession session=factory.openSession();
+		try {
+			estado=session.insert("SQL_InsertarUsuario",usu);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		return estado;
+	}
+
+	@Override
+	public int updateUsuario(Usuario usu) {
+		int estado=-1;
+		SqlSession session=factory.openSession();
+		try {
+			estado=session.update("SQL_ActualizarUsuario",usu);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		return estado;
+	}
+
+	@Override
+	public int deleteUsuario(int id) {
+		int estado=-1;
+		SqlSession session=factory.openSession();
+		try {
+			estado=session.delete("SQL_EliminarMedicamento",id);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		return estado;
+	}
+
+	@Override
+	public List<Usuario> listUsuario() {
+		List<Usuario> lista=new ArrayList<Usuario>();
+		SqlSession session=factory.openSession();
+		try {
+			lista=session.selectList("SQL_EliminarMedicamento");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		return lista;
+	}
+
 }

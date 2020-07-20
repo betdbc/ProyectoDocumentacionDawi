@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dawi">
+	<resultMap type="UsuarioCrudIbatis" id="resultUsuarioCrud">
+		<id column="numero" property="codigoUsuario"/>
+		<result column="nombre" property="nombres"/>
+		<result column="apellido" property="apellidos"/>
+		<result column="usuario" property="login"/>
+		<result column="contraseña" property="clave"/>
+		<result column="correo" property="correo"/>
+	</resultMap>
+	
+	<insert id="SQL_InsertarUsuario" statementType="CALLABLE" parameterType="UsuarioCrudIbatis">
+		call sp_registrarUsuario(#{nombres},#{apellidos},#{login},#{clave},#{correo});
+	</insert>
+	<select id="SQL_listarUsuario" statementType="CALLABLE" resultMap="resultUsuarioCrud">
+		call sp_listarUsuarios();
+	</select>
+	<update id="SQL_ActualizarUsuario" statementType="CALLABLE" parameterType="UsuarioCrudIbatis">
+		call sp_actualizarUsuarios(#{codigo},#{nombres},#{apellidos},#{login},#{clave},#{correo});
+	</update>
+	<delete id="SQL_EliminarMedicamento" statementType="CALLABLE" parameterType="int">
+		call sp_eliminarUsuarios(#{cod});
+	</delete>
+	
+	
+</mapper>
+
+
+

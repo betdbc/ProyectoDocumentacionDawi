@@ -2,7 +2,7 @@ package net.farmacia.entidad;
 
 public class Usuario {
 	private int codigoUsuario;
-	private String nombres,apellidos,login,clave;
+	private String nombres,apellidos,login,clave, correo;
 	
 	
 	public int getCodigoUsuario() {
@@ -34,6 +34,12 @@ public class Usuario {
 	}
 	public void setClave(String clave) {
 		this.clave = clave;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 	
 	
