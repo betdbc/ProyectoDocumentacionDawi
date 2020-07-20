@@ -4,40 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" type="text/css"/>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" type="text/css"/>
+ 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<link href="css/styles.css" rel="stylesheet" type="Text/css"/>
+
 
 <title>Colegio</title>
-<style>
-	.modal-header, h4, .close {
-		background-color: #286090;
-		color: white !important;
-		text-align: center;
-		font-size: 20px;
-	}
-	.help-block{
-	 background-color: red;
-	 display: none;
-	}
-	.dataTables_length{
-	 display: none;
-	}
-	.dataTables_filter{
-		text-align: right;
-	}
-	.dataTables_info{
-	 display: none;
-	}
-	.dataTables_paginate{
-		cursor: pointer;
-	}
-	.ocultar{
-		display:none;
-	}
-	
-</style> 
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -46,7 +21,6 @@
 	     		 <a class="navbar-brand" href="menu.jsp">Regresar</a>
 	  			</div>
 	  	</div>
-	  
 	  <div class="collapse navbar-collapse">
 		  <ul class="navbar-nav">
 	
@@ -54,11 +28,8 @@
 		    <li class="nav-item">
 		      <a class="nav-link" href="${row.ruta}">${row.descripcion}</a>
 		    </li>
-		</c:forEach>
-	
-		    
+		</c:forEach>    
 		  </ul>
-	
 		  <div class="navbar-nav ml-auto">
 		  		
 		     	<span class="nav-item nav-link">${sessionScope.USUARIO.apellidos} ${sessionScope.USUARIO.nombres}</span>  
@@ -66,7 +37,7 @@
 		        <a href="cerrarSesion" class="nav-item nav-link">Cerar Sesión</a>
 	      </div>
     </div>
-	</nav>
+ </nav>
 
 <s:if test="${sessionScope.MENSAJE !=null}">
 <div class="alert alert-warning alert-dismissible fade show" role="alert" id="success-alert">
@@ -80,71 +51,25 @@
 
 
 
-	<div class="container">
-		<h3 align="center">Lista</h3>
-
-	
-	
-<!-- INICIO DIV NUEVO -->
-<div>
-  <div>
-				<!-- Modal content-->
-				<div>
-				<div class="modal-header" style="padding: 5px 20px">
-					Registro de Colegios<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				
-       				   </button>
-				</div>
-				<div class="modal-body" style="padding: 20px 20px;">
-					<form id="idRegistra" accept-charset="UTF-8" action="saveColegio" 
-													class="form-horizontal" method="post" data-toggle="validator" role="form">						
-		                   
-		                                	<!-- Modal conten
-		                                		<div class="form-group">
-		                                        <label for="staticEmail">Centro Educativo</label>
-													<select id="idCodigo" name="documentacion.codigoColegio" class='form-control'>
-							                                 <option value=" " >[SELECCIONE]</option>
-							                         </select>
-		                                    </div>
-		                                	
-		                                	
-		                                	
-		                                	t-->
-		                                	<div class="form-group">
-			                                   	<label for="staticEmail">Centro educativo</label>
-												<input class="form-control" id="idCentro" name="colegio.nombre" placeholder="Ingrese el asunto"/>
-			                                </div>
-			                                <div class="form-group">
-			                                   	<label for="staticEmail">Director</label>
-												<input class="form-control" id="idNombre" name="colegio.director" placeholder="Ingrese el asunto"/>
-			                                </div> 
-		                                
-			                                <div class="form-row">
-			                                    <div class="form-group col-md-6">
-			                                        <label for="staticEmail">Fecha</label>
-														<input class="form-control" id="idFecha" name="colegio.fecha" placeholder="Ingrese fecha"/>
-			                                    </div>
-			                                 </div>     
-		                                  
-		                                  
-		                                   
-                             	                                    
-                        				<div class="modal-footer">
-									        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-									        <button type="submit" class="btn btn-primary">Guardar</button>
-									    </div>
-
-		            </form>      
-				</div>
-			</div>
-		</div>
-  </div>
-  <!-- FIN DIV NUEVO -->
-  
- 
-  <!-- FIN DIV EDITAR -->
-
-  
+	<div class="container" id="advanced-search-form">
+		<h2 align="center">Registrar Colegio</h2>
+		 <form id="idRegistra" accept-charset="UTF-8" action="saveColegio" 
+													class="form-horizontal" method="post" data-toggle="validator" role="form">
+            <div class="form-group">
+                <label for="first-name">Nombre</label>
+                <input type="text" class="form-control" name="colegio.nombre" placeholder="Nombre" id="idNombre">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Director</label>
+                <input type="text" class="form-control" name="colegio.director" placeholder="Asunto" id="idDirector">
+            </div>
+            <div class="form-group">
+                <label for="country">Fecha</label>
+                <input type="text" class="form-control" name="colegio.fecha" placeholder="Fecha" id="idFecha">
+            </div>
+            <div class="clearfix"></div>
+            <button type="submit" class="btn btn-info btn-lg btn-responsive" id="search"> <span ></span> Guardar</button>
+        </form>
   
 </div>
   

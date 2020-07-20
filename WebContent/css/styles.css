@@ -14,7 +14,7 @@ body{
     margin: 160px auto 0;
     padding: 40px;
     color: #858b8e;
-    box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.5) !important;
 }
 
 #advanced-search-form h2{
@@ -84,4 +84,21 @@ body{
     #advanced-search-form h2{
         text-align: center;
     }
+}
+
+#tit{
+	text-align: center;
+	font-size: 20px;
+	font-family: inherit;
+}
+
+.consDoc{
+	background-color: rgba(0,0,0,0.5) !important; 
+	
+}
+
+.cont{
+	
+	width: 40px;
+	background: red;
 }

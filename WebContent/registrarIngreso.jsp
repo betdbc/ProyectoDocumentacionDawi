@@ -9,35 +9,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" type="text/css"/>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" type="text/css"/>
 
-<title>Ingreso</title>
-<style>
-	.modal-header, h4, .close {
-		background-color: #286090;
-		color: white !important;
-		text-align: center;
-		font-size: 20px;
-	}
-	.help-block{
-	 background-color: red;
-	 display: none;
-	}
-	.dataTables_length{
-	 display: none;
-	}
-	.dataTables_filter{
-		text-align: right;
-	}
-	.dataTables_info{
-	 display: none;
-	}
-	.dataTables_paginate{
-		cursor: pointer;
-	}
-	.ocultar{
-		display:none;
-	}
-	
-</style> 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="css/styles.css" rel="stylesheet" type="Text/css"/>
+   
+
+<title>Documentos</title>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -55,14 +32,9 @@
 		      <a class="nav-link" href="${row.ruta}">${row.descripcion}</a>
 		    </li>
 		</c:forEach>
-	
-		    
 		  </ul>
-	
 		  <div class="navbar-nav ml-auto">
-		  		
 		     	<span class="nav-item nav-link">${sessionScope.USUARIO.apellidos} ${sessionScope.USUARIO.nombres}</span>  
-		     
 		        <a href="cerrarSesion" class="nav-item nav-link">Cerar Sesión</a>
 	      </div>
     </div>
@@ -80,81 +52,43 @@
 
 
 
-	<div class="container">
-		<h3 align="center">	Registrar de Ingreso</h3>
-
-	
-	
-<!-- INICIO DIV NUEVO -->
-<div>
-  <div>
-				<!-- Modal content-->
-				<div>
-				<div class="modal-header" style="padding: 5px 20px">
-					Registro de Orden de Ingreso<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				
-       				   </button>
-				</div>
-				<div class="modal-body" style="padding: 20px 20px;">
-					<form id="idRegistra" accept-charset="UTF-8" action="saveIngreso" 
-													class="form-horizontal" method="post" data-toggle="validator" role="form">						
-		                   
-		                                	<!-- Modal conten
-		                                		
-		                                		<div class="form-group">
-			                                   	<label for="staticEmail">Estado</label>
-												<input class="form-control" id="idEstado" name="ingreso.estado" placeholder="Ingrese el asunto"/>
-			                                </div>
-		                                	t-->
-		                                	
-		                                	<div class="form-group">
-		                                        <label for="staticEmail">Estado</label>
-													<select id="idEstado" name="ingreso.estado" class='form-control'>
-							                                 <option value=" " >[SELECCIONE]</option>
-							                                 <option value="habilitado" >habilitado</option>
-							                                 <option value="inhabilitado" >inhabilitado</option>
-							                         </select>
-		                                    </div>
-		                                
-		                                	
-		                                     <div class="form-group">
-		                                        <label for="staticEmail">Colegio</label>
-													<select id="idColegio" name="ingreso.codigocolegio" class='form-control'>
-							                                 <option value=" " >[SELECCIONE]</option>
-							                         </select>
-		                                    </div>
-		                                	 
-		                                	<div class="form-group">
-			                                   	<label for="staticEmail">Asunto</label>
+	<div class="container" id="advanced-search-form">
+		<div id="cont">
+			<h2 align="center">	Registrar de Ingreso</h2>
+		<form id="idRegistra" accept-charset="UTF-8" action="saveIngreso" 
+													class="form-horizontal" method="post" data-toggle="validator" role="form">
+													
+			
+		     
+		     <div class="form-group">
+			                                   	<label for="first-name">Asunto</label>
 												<input class="form-control" id="idAsunto" name="ingreso.asunto" placeholder="Ingrese el asunto"/>
 			                                </div>
 			                                <div class="form-row">
 			                                    <div class="form-group col-md-6">
-			                                        <label for="staticEmail">Fecha</label>
-														<input class="form-control" id="idFecha" name="ingreso.fecha" placeholder="Ingrese fecha"/>
+			                                        <label for="first-name">Fecha</label>
+														<input class="form-control" id="idFecha" name="ingreso.fecha" placeholder=" Ingrese fecha "/>
 			                                    </div>
-			                                 </div>     
-		                                  
-		                                  
-		                                   
-                             	                                    
-                        				<div class="modal-footer">
-									        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-									        <button type="submit" class="btn btn-primary">Guardar</button>
-									    </div>
-
-		            </form>      
-				</div>
-			</div>
+			                                 </div>
+			   <div class="form-group">
+		        <label for="country">Estado</label>
+				<select id="idEstado" name="ingreso.estado" class='form-control'>
+						<option value=" " >[SELECCIONE]</option>
+						<option value="Visado" >Visado</option>
+						<option value="Sin Visar" >Sin Visar</option>
+				</select>
+		     </div>
+		     <div class="form-group">
+		          <label for="country">Colegio</label>
+				  <select id="idColegio" name="ingreso.codigocolegio" class='form-control'>
+				     <option value=" " >[SELECCIONE]</option>
+				  </select>
+		     </div>
+            <div class="clearfix"></div>
+            <button type="submit" class="btn btn-info btn-lg btn-responsive" id="search"> <span ></span> Guardar</button>
+        </form>
 		</div>
-  </div>
-  <!-- FIN DIV NUEVO -->
-  
- 
-  <!-- FIN DIV EDITAR -->
-
-  
-  
+		
 </div>
   
 

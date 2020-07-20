@@ -13,33 +13,7 @@
  
   </head>
   <body class="  ">
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	  	  <div class="navbar-header">
-		       <div class="navbar-header">
-	     		  <a class="navbar-brand" href="menu.jsp">Regresar</a>
-	  			</div>
-	  	</div>
-	  
-	  <div class="collapse navbar-collapse">
-		  <ul class="navbar-nav">
-	
-		   <c:forEach items="${sessionScope.ENLACES}" var="row">
-		    <li class="nav-item">
-		      <a class="nav-link" href="${row.ruta}">${row.descripcion}</a>
-		    </li>
-		</c:forEach>
-	
-		    
-		  </ul>
-	
-		  <div class="navbar-nav ml-auto">
-		  		
-		     	<span class="nav-item nav-link">${sessionScope.USUARIO.apellidos} ${sessionScope.USUARIO.nombres}</span>  
-		     
-		        <a href="cerrarSesion" class="nav-item nav-link">Cerar Sesión</a>
-	      </div>
-    </div>
-	</nav>
+  
    <div id="content">
         <div class="outer">
           <div class="inner bg-light lter">
@@ -149,30 +123,7 @@
 			$("#clienteTable").DataTable();
     	})
 
-		/* $.getJSON("listAllLaboratorios",{},function(data){
-			//bucle
-			$.each(data.listaLaboratorios,function(index,item){
-				$("#idLaboratorio").append("<option value='"+item.idLaboratorio+"'>"+item.nombre+"</option>");
-			})
-		})
-		//
-		$("#idLaboratorio").change(function(){
-			//obtener el valor actual del combo
-			var codLab;
-			codLab=$(this).val();
-			$("#medicamentoTable tbody").empty(); 
-			$.getJSON("listAllMedicamentoAtLaboratorio",{codigoLaboratorio:codLab},function(data){
-				//bucle
-				$.each(data.listaMedicamentos,function(index,item){
-					$("#medicamentoTable").append("<tr><td>"+item.idMedicamento+"</td><td>"+
-															 item.descripcion+"</td><td>"+
-															 item.precio+"</td><td>"+
-															 item.stock+"</td></tr>");
-				})
-				$("#medicamentoTable").DataTable();
-			});
-			
-		})*/
+		
 		$("#clienteTable").on("click","tbody tr",function(){
 			var cod,nom,ape;
 			cod=$(this).children('td:eq(0)').html();
@@ -184,16 +135,7 @@
 			$("#idApellidoCliente").val(ape);
 		})
 		/*$("#medicamentoTable").on("click","tbody tr",function(){
-			var cod,des,pre,stock;
-			cod=$(this).children('td:eq(0)').html();
-			des=$(this).children('td:eq(1)').html();
-			pre=$(this).children('td:eq(2)').html();
-			stock=$(this).children('td:eq(3)').html();
-			
-			$("#idCodigo").val(cod);
-			$("#idDescripcion").val(des);
-			$("#idPrecio").val(pre);
-		})*/
+	
     	
     	
     </script>

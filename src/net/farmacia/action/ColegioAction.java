@@ -71,6 +71,8 @@ public class ColegioAction extends ActionSupport {
 	public void setColegio(Colegio colegio) {
 		this.colegio = colegio;
 	}
+
+	
 	
 	
 	

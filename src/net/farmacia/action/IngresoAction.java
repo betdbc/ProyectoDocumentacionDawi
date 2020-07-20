@@ -69,7 +69,7 @@ public class IngresoAction extends ActionSupport {
 	//REPORTE DOCUMENTACION POR ESTADO
 	
 		@Action(value="/reporteIngresoXestado",results= {@Result(
-				params= {"location","/reportes/reporteIngresoXestado.jasper",
+				params= {"location","/reportes/reporteIngresoXEstado.jasper",
 						 "dataSource","listaIngreso",
 						 "format","PDF"
 						},

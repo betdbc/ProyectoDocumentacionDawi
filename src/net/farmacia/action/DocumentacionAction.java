@@ -50,7 +50,7 @@ public class DocumentacionAction extends ActionSupport {
 	}
 
 	
-	@Action(value="/saveDocumentacion",results= {@Result(name="ok",type="redirect",location="/registrarDocumentoNuevo.jsp") })
+	@Action(value="/saveDocumentacion",results= {@Result(name="ok",type="redirect",location="/registrarDocumento.jsp") })
 	public String saveDocumentacion() {
 		int salida;
 		salida=documentacionService.saveDocumentacion(documentacion);
