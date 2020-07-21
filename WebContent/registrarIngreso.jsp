@@ -54,7 +54,7 @@
 
 	<div class="container" id="advanced-search-form">
 		<div id="cont">
-			<h2 align="center">	Registrar de Ingreso</h2>
+			<h2 align="center">	Registro de Ingreso</h2>
 		<form id="idRegistra" accept-charset="UTF-8" action="saveIngreso" 
 													class="form-horizontal" method="post" data-toggle="validator" role="form">
 													

@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" type="text/css"/>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" type="text/css"/>
 
+
+
 <title>Usuario</title>
 <style>
 	.modal-header, h4, .close {
@@ -63,7 +65,7 @@
 		  		
 		     	<span class="nav-item nav-link">${sessionScope.USUARIO.apellidos} ${sessionScope.USUARIO.nombres}</span>  
 		     
-		        <a href="cerrarSesion" class="nav-item nav-link">Cerar Sesión</a>
+		        <a href="cerrarSesion" class="nav-item nav-link">Cerrar Sesión</a>
 	      </div>
     </div>
 </nav>
@@ -248,7 +250,6 @@ var idTipo=0;
 
 $(document).ready(function() {
 	cargarTabla();
-	cargarComboLaboratorio();
 });
 </script>
 <script>
@@ -306,62 +307,68 @@ $(document).ready(function() {
     $(document).ready(function(){     
         $('#idRegistra').bootstrapValidator({      
         	 fields:{
-        		 
         		 Nombre: {
      	    		selector:'#idNombre',   
                     validators: {    
                         notEmpty: {    
                             message: 'Ingrese nombre'    
                         },      
-                        regexp: {    
-                            regexp: /^[a-zA-Z\s]+$/,    
-                            message: 'The username can only consist of alphabetical, number, dot and underscore'    
+                        regexp: {
+                            regexp: /^([-a-zA-ZÉÍÑÓÚÜáéíóúüñ\s])+$/,
+                            message: 'El nombre acepta letras mayúsculas, minúsculas con y sin tilde; y espacio'
                         },    
                     }    
                 },   
-                Descripcion: {
-     	    		selector:'#idDescripcion',       
+                Apellido: {
+     	    		selector:'#idApellido',       
                     validators: {    
                         notEmpty: {    
-                            message: 'Ingrese Descrpción'    
-                        }   
-                    }    
-                },    
-                Stock: {
-     	    		selector:'#idStock',      
-                    validators: {    
-                        notEmpty: {    
-                            message: 'Ingrese Stock'    
-                        },       
-                    }    
-                },    
-                Precio: {
-     	    		selector:'#idPrecio',     
-                    validators: {    
-                        notEmpty: {    
-                            message: 'Ingrese Precio'    
-                        },       
+                            message: 'Ingrese Apellido'    
+                        },
+                        regexp: {
+                            regexp: /^([-a-zA-ZÉÍÑÓÚÜáéíóúüñ\s])+$/,
+                            message: 'El apellido acepta letras mayúsculas, minúsculas con y sin tilde; y espacio'
+                        },
                     }    
                 }, 
-                Fecha: {
-     	    		selector:'#idFecha',   
+                Usuario: {
+     	    		selector:'#idUsuario',       
                     validators: {    
                         notEmpty: {    
-                            message: 'Ingrese Fecha'    
-                        },					
+                            message: 'Ingrese Usuario'    
+                        },
+                        regexp: {
+                            regexp: /^([-a-zA-ZÉÍÑÓÚÜáéíóúüñ\s])+$/,
+                            message: 'El usuario acepta letras mayúsculas, minúsculas con y sin tilde; y espacio'
+                        },
                     }    
-                },   				
-                Laboratorio: {
-     	    		selector:'#idLaboratorio',   
-                    validators: {    
+                }, 
+                
+                Stock: {
+     	    		selector:'#idContraseña',      
+     	    		validators: {    
                         notEmpty: {    
-                            message: 'Seleccione Laboratorio'    
-                        },					
-                    }    
-                } 
+                            message: 'Ingrese Contraseña'    
+                        },
+                        regexp: {
+                            regexp: /^([-a-zA-ZÉÍÑÓÚÜáéíóúüñ\s])+$/,
+                            message: 'La contraseña acepta letras mayúsculas, minúsculas con y sin tilde; y espacio'
+                        },
+                    }      
+                },
+                
+                Stock: {
+     	    		selector:'#idCorreo', 
+     	    		notEmpty: {
+                        message: 'El correo es obligatorio'
+                    },
+                    emailAddress: {
+                        message: 'No es valido el correo'
+                    },
+                 }		
+        	   
         	 }
         });   
-			
     });   
 </script>   
 
