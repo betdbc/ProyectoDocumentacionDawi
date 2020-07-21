@@ -117,7 +117,7 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
 		List<Usuario> lista=new ArrayList<Usuario>();
 		SqlSession session=factory.openSession();
 		try {
-			lista=session.selectList("SQL_EliminarMedicamento");
+			lista=session.selectList("SQL_listarUsuario");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
