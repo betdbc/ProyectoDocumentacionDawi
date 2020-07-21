@@ -92,6 +92,12 @@ body{
 	font-family: inherit;
 }
 
+.usuB{
+	text-align: center;
+	font-size: 20px;
+	color: white;
+}
+
 .consDoc{
 	background-color: rgba(0,0,0,0.5) !important; 
 	

@@ -1,9 +1,21 @@
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
+<html lang="esS">
 <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title></title>
+ <!--Fontawesome CDN-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="css/signin.css" rel="stylesheet">
+<link href="css/stylesLogin.css" rel="stylesheet" type="Text/css"/>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+
 
 </head>
 <body>
@@ -11,27 +23,20 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  	  <div class="navbar-header">
 		       <div class="navbar-header">
-	     		 <a class="navbar-brand" href="#">SERPRODAT</a>
+	     		 <a class="navbar-brand" href="#">UGEL</a>
 	  			</div>
 	  	</div>
-	  
 	  <div class="collapse navbar-collapse">
 		  <ul class="navbar-nav">
-	
 		   <c:forEach items="${sessionScope.ENLACES}" var="row">
 		    <li class="nav-item">
 		      <a class="nav-link" href="${row.ruta}">${row.descripcion}</a>
 		    </li>
 		</c:forEach>
-	
-		    
 		  </ul>
-	
 		  <div class="navbar-nav ml-auto">
-		  		
-		     	<span class="nav-item nav-link">${sessionScope.USUARIO.apellidos} ${sessionScope.USUARIO.nombres}</span>  
-		     
-		        <a href="cerrarSesion" class="nav-item nav-link">Cerar Sesión</a>
+		     	<span class="nav-item nav-link">${sessionScope.USUARIO.apellidos} ${sessionScope.USUARIO.nombres}</span> 
+		        <a href="cerrarSesion" class="nav-item nav-link">Cerrar Sesión</a>
 	      </div>
     </div>
 	</nav>
@@ -39,6 +44,20 @@
 
 
 <div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="textIng">Bienvenido</h3>
+				
+			</div>
+			 <div class="card-header">
+		     	<h3 class="textIng">
+		     	<span>${sessionScope.USUARIO.apellidos} ${sessionScope.USUARIO.nombres}</span> 
+		     	</h3>
+	      	</div>
+		
+		</div>
+		</div>
 
 
 </div>
